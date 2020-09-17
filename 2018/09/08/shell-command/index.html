@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>shell速查表 | Zuozishi Blog</title>
+  <meta name="keywords" content=" Linux , shell ">
+  <meta name="description" content="shell速查表 | Zuozishi Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="@[TOC] 1 引言1.1 课题的研究背景和意义到2020年，全球联网的设备已超过200亿台，随着IPv6主干网建设和5G移动网络的部署，将有更多的物联网设备之间连接到互联网。云端需要处理越来越多的边缘端设备数据，同时边缘端设备的安全性也面临着不小的挑战。 无人驾驶汽车的传感器和摄像头，实时捕捉路况信息，每秒大约会产生1GB的数据，如果无人驾驶判断依赖于云服务，不能保证服务的随时可用性和稳定性，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分布式物联网边缘计算服务设计与实现">
+<meta property="og:url" content="https://zuozishi.github.io/2020/05/22/ProjectEdge/%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%A9%E8%81%94%E7%BD%91%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E6%9C%8D%E5%8A%A1%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:site_name" content="Zuozishi Blog">
+<meta property="og:description" content="@[TOC] 1 引言1.1 课题的研究背景和意义到2020年，全球联网的设备已超过200亿台，随着IPv6主干网建设和5G移动网络的部署，将有更多的物联网设备之间连接到互联网。云端需要处理越来越多的边缘端设备数据，同时边缘端设备的安全性也面临着不小的挑战。 无人驾驶汽车的传感器和摄像头，实时捕捉路况信息，每秒大约会产生1GB的数据，如果无人驾驶判断依赖于云服务，不能保证服务的随时可用性和稳定性，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://docs.kubeedge.io/en/latest/_images/kubeedge_arch.png">
+<meta property="og:image" content="https://github.com/zuozishi/ProjectEdgeDoc/raw/master/image/k3s.png">
+<meta property="og:image" content="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=752513542,1323126138&fm=26&gp=0.jpg">
+<meta property="og:image" content="https://www.docker.com/sites/default/files/d8/2018-11/container-vm-whatcontainer_2.png">
+<meta property="og:image" content="https://www.docker.com/sites/default/files/d8/2018-11/docker-containerized-appliction-blue-border_2.png">
+<meta property="og:image" content="https://images2018.cnblogs.com/blog/894443/201806/894443-20180625095828062-769155408.png">
+<meta property="og:image" content="https://github.com/zuozishi/ProjectEdgeDoc/raw/master/image/%E4%BA%91%E4%BC%81%E4%B8%9A%E7%BD%91.png">
+<meta property="og:image" content="https://github.com/zuozishi/ProjectEdgeDoc/raw/master/image/ssl.png">
+<meta property="og:image" content="https://github.com/zuozishi/ProjectEdgeDoc/raw/master/image/agent1.png">
+<meta property="og:image" content="https://github.com/zuozishi/ProjectEdgeDoc/raw/master/image/Sketch%E7%94%B5%E8%B7%AF%E5%9B%BE.png">
+<meta property="og:image" content="https://github.com/zuozishi/ProjectEdgeDoc/raw/master/image/rfid-rc522.png">
+<meta property="article:published_time" content="2020-05-21T21:37:37.000Z">
+<meta property="article:modified_time" content="2020-09-17T01:57:00.732Z">
+<meta property="article:author" content="Zuozishi">
+<meta property="article:tag" content="Kubernetes">
+<meta property="article:tag" content="ProjectEdge">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="k3s">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://docs.kubeedge.io/en/latest/_images/kubeedge_arch.png">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Zuozishi</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="reddit" href="https://www.reddit.com/user/yelog/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-reddit"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="weibo" href="http://weibo.com/u/2307534817" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/ff56736de7cf" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="https://www.zhihu.com/people/jaytp/activities" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="oschina" href="https://my.oschina.net/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-oschina"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:jaytp@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="kugou" href="https://www.kugou.com/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-kugou"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=88151013" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-neteasemusic"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(8)</small></div></li>
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Linux">Linux<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="虚拟化/容器">虚拟化/容器<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="8">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Docker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>hexo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>k3s</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kubernetes</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ProjectEdge</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>shell</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Ubuntu</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 虚拟化/容器 "
+           href="/2020/05/22/ProjectEdge/%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%A9%E8%81%94%E7%BD%91%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E6%9C%8D%E5%8A%A1%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"
+           data-tag="Kubernetes,ProjectEdge,Docker,k3s"
+           data-author="" >
+            <span class="post-title" title="分布式物联网边缘计算服务设计与实现">分布式物联网边缘计算服务设计与实现</span>
+            <span class="post-date" title="2020-05-22 05:37:37">2020/05/22</span>
+        </a>
+        
+        <a  class="全部文章 虚拟化/容器 "
+           href="/2020/04/21/ProjectEdge/k8s%E9%9B%86%E7%BE%A4%E4%B8%AD%E7%9A%84%E5%9D%91/"
+           data-tag="Kubernetes,ProjectEdge"
+           data-author="" >
+            <span class="post-title" title="k8s集群中的坑">k8s集群中的坑</span>
+            <span class="post-date" title="2020-04-21 15:07:15">2020/04/21</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/04/16/linux/Ubuntu%20CentOS%E6%90%AD%E5%BB%BANFS%E6%9C%8D%E5%8A%A1/"
+           data-tag="Linux,Ubuntu"
+           data-author="" >
+            <span class="post-title" title="Ubuntu/CentOS搭建NFS服务">Ubuntu/CentOS搭建NFS服务</span>
+            <span class="post-date" title="2020-04-16 16:04:17">2020/04/16</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/04/16/linux/Ubuntu%E4%B8%8B%E6%90%AD%E5%BB%BAgitlab/"
+           data-tag="Linux,Ubuntu"
+           data-author="" >
+            <span class="post-title" title="Ubuntu下搭建GitLab">Ubuntu下搭建GitLab</span>
+            <span class="post-date" title="2020-04-16 16:04:17">2020/04/16</span>
+        </a>
+        
+        <a  class="全部文章 虚拟化/容器 "
+           href="/2020/04/16/ProjectEdge/%E5%AE%89%E8%A3%85k8s%E9%9B%86%E7%BE%A4/"
+           data-tag="Kubernetes,ProjectEdge,Docker"
+           data-author="" >
+            <span class="post-title" title="安装k8s集群">安装k8s集群</span>
+            <span class="post-date" title="2020-04-16 04:00:48">2020/04/16</span>
+        </a>
+        
+        <a  class="全部文章 工具 "
+           href="/2020/04/16/mermaid/"
+           data-tag="hexo"
+           data-author="" >
+            <span class="post-title" title="mermaid图表">mermaid图表</span>
+            <span class="post-date" title="2020-04-16 03:41:45">2020/04/16</span>
+        </a>
+        
+        <a  class="全部文章 工具 "
+           href="/2020/04/16/tools/Markdown/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Markdown语法">Markdown语法</span>
+            <span class="post-date" title="2020-04-16 01:27:48">2020/04/16</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2018/09/08/shell-command/"
+           data-tag="Linux,shell"
+           data-author="" >
+            <span class="post-title" title="shell速查表">shell速查表</span>
+            <span class="post-date" title="2018-09-08 11:48:24">2018/09/08</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-shell-command" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">shell速查表</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Linux">Linux</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color1">Linux</a>
+            
+            <a class="color1">shell</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2020-09-17 09:57:00'>2018-09-08 11:48</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-变量"><span class="toc-text">1. 变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-传参"><span class="toc-text">2. 传参</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-数组"><span class="toc-text">3. 数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-基本运算符"><span class="toc-text">4. 基本运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#①-算数运算符"><span class="toc-text">① 算数运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#②-关系运算符"><span class="toc-text">② 关系运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#③-布尔运算符"><span class="toc-text">③ 布尔运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#④-逻辑运算符"><span class="toc-text">④ 逻辑运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#⑤-字符串运算符"><span class="toc-text">⑤ 字符串运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#⑥-文件测试运算符"><span class="toc-text">⑥ 文件测试运算符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-echo"><span class="toc-text">5. echo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#①-命令格式"><span class="toc-text">① 命令格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#②-颜色显示"><span class="toc-text">② 颜色显示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-sprintf"><span class="toc-text">6. sprintf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-test"><span class="toc-text">7. test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-流程控制"><span class="toc-text">8. 流程控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#①-if-else"><span class="toc-text">① if-else</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#②-for"><span class="toc-text">② for</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#③-while"><span class="toc-text">③ while</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#④-case"><span class="toc-text">④ case</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#⑤-break"><span class="toc-text">⑤ break</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#⑥-continue"><span class="toc-text">⑥ continue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#⑦-until"><span class="toc-text">⑦ until</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-函数"><span class="toc-text">9. 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-输入输出"><span class="toc-text">10. 输入输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-文件包含"><span class="toc-text">11. 文件包含</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reference"><span class="toc-text">reference:</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-变量"><a href="#1-变量" class="headerlink" title="1. 变量"></a>1. 变量</h2><pre><code class="bash">#!/bin/bash
+msg=&quot;hello world&quot;
+echo $msg</code></pre>
+<blockquote>
+<p><strong>变量名的命名须遵循如下规则：</strong></p>
+<ul>
+<li>命名只能使用英文字母，数字和下划线，首个字符不能以数字开头。</li>
+<li>中间不能有空格，可以使用下划线（_）。</li>
+<li>不能使用标点符号。</li>
+<li>不能使用bash里的关键字（可用help命令查看保留关键字）。</li>
+</ul>
+</blockquote>
+<h2 id="2-传参"><a href="#2-传参" class="headerlink" title="2. 传参"></a>2. 传参</h2><pre><code class="bash">#!/bin/bash
+echo &quot;执行的文件名：$0&quot;;
+echo &quot;第一个参数为：$1&quot;;
+echo &quot;第二个参数为：$2&quot;;
+echo &quot;第三个参数为：$3&quot;;</code></pre>
+<blockquote>
+<p><strong>脚本内获取参数的格式为：</strong><br>$n。n 代表一个数字，1 为执行脚本的第一个参数，2 为执行脚本的第二个参数，以此类推……<br><strong>另外，还有几个特殊字符用来处理参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>$#</code></td>
+<td>传递到脚本的参数个数</td>
+</tr>
+<tr>
+<td><code>$*</code></td>
+<td>以一个单字符串显示所有向脚本传递的参数。<br>如<code>&quot;$*&quot;</code>用「”」括起来的情况、以”$1 $2 … $n”的形式输出所有参数。</td>
+</tr>
+<tr>
+<td><code>$$</code></td>
+<td>脚本运行的当前进程ID号</td>
+</tr>
+<tr>
+<td><code>$!</code></td>
+<td>后台运行的最后一个进程的ID号</td>
+</tr>
+<tr>
+<td><code>$@</code></td>
+<td>与<code>$*</code>相同，但是使用时加引号，并在引号中返回每个参数。<br>如”$@”用「”」括起来的情况、以”$1” “$2” … “$n” 的形式输出所有参数。</td>
+</tr>
+<tr>
+<td><code>$-</code></td>
+<td>显示Shell使用的当前选项，与set命令功能相同。</td>
+</tr>
+<tr>
+<td><code>$?</code></td>
+<td>显示最后命令的退出状态。0表示没有错误，其他任何值表明有错误。</td>
+</tr>
+</tbody></table>
+</blockquote>
+<h2 id="3-数组"><a href="#3-数组" class="headerlink" title="3. 数组"></a>3. 数组</h2><pre><code class="bash">#!/bin/bash
+my_array=(A B &quot;C&quot; D)
+echo &quot;第一个元素为: ${my_array[0]}&quot;
+echo &quot;第二个元素为: ${my_array[1]}&quot;
+echo &quot;第三个元素为: ${my_array[2]}&quot;
+echo &quot;第四个元素为: ${my_array[3]}&quot;
+
+echo &quot;数组的元素为: ${my_array[*]}&quot;
+echo &quot;数组的元素为: ${my_array[@]}&quot;
+
+echo &quot;数组元素个数为: ${#my_array[*]}&quot;
+echo &quot;数组元素个数为: ${#my_array[@]}&quot;</code></pre>
+<p>执行结果如下：</p>
+<pre><code class="yml">第一个元素为: A
+第二个元素为: B
+第三个元素为: C
+第四个元素为: D
+数组的元素为: A B C D
+数组的元素为: A B C D
+数组元素个数为: 4
+数组元素个数为: 4</code></pre>
+<h2 id="4-基本运算符"><a href="#4-基本运算符" class="headerlink" title="4. 基本运算符"></a>4. 基本运算符</h2><blockquote>
+<p>原生 bash 不支持简单的数学运算，但是可以通过其他命令来实现，例如 awk 和 expr，expr 最常用。</p>
+</blockquote>
+<p>expr 是一款表达式计算工具，使用它能完成表达式的求值操作。</p>
+<h3 id="①-算数运算符"><a href="#①-算数运算符" class="headerlink" title="① 算数运算符"></a>① 算数运算符</h3><pre><code class="bash">#!/bin/bash
+echo &quot;2加2等于&quot;`expr 2 + 2`
+echo &quot;2减2等于&quot;`expr 2 - 2`
+echo &quot;2乘2等于&quot;`expr 2 \* 2`
+echo &quot;2除2等于&quot;`expr 2 / 2`
+echo &quot;2除2取余&quot;`expr 2 % 2`</code></pre>
+<h3 id="②-关系运算符"><a href="#②-关系运算符" class="headerlink" title="② 关系运算符"></a>② 关系运算符</h3><pre><code class="bash">#!/bin/bash
+a=10
+b=20
+if [ $a -eq $b ] # 检测两个数是否相等，相等返回 true。
+if [ $a -ne $b ] # 检测两个数是否不相等，不相等返回 true。
+if [ $a -gt $b ] # 检测左边的数是否大于右边的，如果是，则返回 true。
+if [ $a -lt $b ] # 检测左边的数是否小于右边的，如果是，则返回 true。
+if [ $a -ge $b ] # 检测左边的数是否大于等于右边的，如果是，则返回 true。
+if [ $a -le $b ] # 检测左边的数是否小于等于右边的，如果是，则返回 true。</code></pre>
+<h3 id="③-布尔运算符"><a href="#③-布尔运算符" class="headerlink" title="③ 布尔运算符"></a>③ 布尔运算符</h3><pre><code class="bash">#!/bin/bash
+if [ ! false ]       # 非运算，返回 true
+if [ true -o false ] # 或运算，返回 true
+if [ true -a false ] # 与运算，返回 false</code></pre>
+<h3 id="④-逻辑运算符"><a href="#④-逻辑运算符" class="headerlink" title="④ 逻辑运算符"></a>④ 逻辑运算符</h3><pre><code class="bash">#!/bin/bash
+a=10
+b=20
+if [[ $a -lt $b &amp;&amp; $a -gt $b ]]   # 逻辑的 AND, 返回 false
+if [ $a -lt $b ] &amp;&amp; [ $a -gt $b ] # 逻辑的 AND, 返回 false
+if [[ $a -lt $b || $a -gt $b ]]   # 逻辑的 OR, 返回 true
+if [ $a -lt $b ] || [ $a -gt $b ] # 逻辑的 OR, 返回 true</code></pre>
+<h3 id="⑤-字符串运算符"><a href="#⑤-字符串运算符" class="headerlink" title="⑤ 字符串运算符"></a>⑤ 字符串运算符</h3><pre><code class="bash">#!/bin/bash
+a=&quot;abc&quot;
+b=&quot;efg&quot;
+if [ $a = $b ]   # 检测两个字符串是否相等，相等返回 true。
+if [ $a != $b ]  # 检测两个字符串是否相等，不相等返回 true。
+if [ -z $a ]     # 检测字符串长度是否为0，为0返回 true。
+if [ -n &quot;$a&quot; ]   # 检测字符串长度是否为0，不为0返回 true。
+if [ $a ]        # 检测字符串是否为空，不为空返回 true。</code></pre>
+<h3 id="⑥-文件测试运算符"><a href="#⑥-文件测试运算符" class="headerlink" title="⑥ 文件测试运算符"></a>⑥ 文件测试运算符</h3><p>文件测试运算符用于检测 Unix 文件的各种属性。</p>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-b file</td>
+<td>检测文件是否是块设备文件，如果是，则返回 true。</td>
+</tr>
+<tr>
+<td>-c file</td>
+<td>检测文件是否是字符设备文件，如果是，则返回 true。</td>
+</tr>
+<tr>
+<td>-d file</td>
+<td>检测文件是否是目录，如果是，则返回 true。</td>
+</tr>
+<tr>
+<td>-f file</td>
+<td>检测文件是否是普通文件（既不是目录，也不是设备文件），如果是，则返回 true。</td>
+</tr>
+<tr>
+<td>-g file</td>
+<td>检测文件是否设置了 SGID 位，如果是，则返回 true。</td>
+</tr>
+<tr>
+<td>-k file</td>
+<td>检测文件是否设置了粘着位(Sticky Bit)，如果是，则返回 true。</td>
+</tr>
+<tr>
+<td>-p file</td>
+<td>检测文件是否是有名管道，如果是，则返回 true。</td>
+</tr>
+<tr>
+<td>-u file</td>
+<td>检测文件是否设置了 SUID 位，如果是，则返回 true。</td>
+</tr>
+<tr>
+<td>-r file</td>
+<td>检测文件是否可读，如果是，则返回 true。</td>
+</tr>
+<tr>
+<td>-w file</td>
+<td>检测文件是否可写，如果是，则返回 true。</td>
+</tr>
+<tr>
+<td>-x file</td>
+<td>检测文件是否可执行，如果是，则返回 true。</td>
+</tr>
+<tr>
+<td>-s file</td>
+<td>检测文件是否为空（文件大小是否大于0），不为空返回 true。</td>
+</tr>
+<tr>
+<td>-e file</td>
+<td>检测文件（包括目录）是否存在，如果是，则返回 true。</td>
+</tr>
+</tbody></table>
+<h2 id="5-echo"><a href="#5-echo" class="headerlink" title="5. echo"></a>5. echo</h2><h3 id="①-命令格式"><a href="#①-命令格式" class="headerlink" title="① 命令格式"></a>① 命令格式</h3><pre><code class="bash">#!/bin/bash
+echo &quot;It is a test&quot;
+echo It is a test
+echo &quot;\&quot;It is a test\&quot;&quot;      # 转义
+name=Chris
+echo &quot;$name is handsome&quot;
+echo -e &quot;OK! \n&quot;             # 显示换行 -e 开启转义
+echo &quot;It is a test&quot; &gt; myfile # 显示结果定向至文件
+echo &#39;$name\&quot;&#39;               # 原样输入字符串，不进行转义或取变量（使用单引号）
+echo `date`                  # 显示命令执行结构</code></pre>
+<h3 id="②-颜色显示"><a href="#②-颜色显示" class="headerlink" title="② 颜色显示"></a>② 颜色显示</h3><pre><code class="bash">echo -e &quot;\033[字背景颜色；文字颜色m字符串\033[0m&quot;
+
+echo -e “\033[30m 黑色字 \033[0m”
+echo -e “\033[31m 红色字 \033[0m”
+echo -e “\033[32m 绿色字 \033[0m”
+echo -e “\033[33m 黄色字 \033[0m”
+echo -e “\033[34m 蓝色字 \033[0m”
+echo -e “\033[35m 紫色字 \033[0m”
+echo -e “\033[36m 天蓝字 \033[0m”
+echo -e “\033[37m 白色字 \033[0m”
+
+echo -e “\033[40;37m 黑底白字 \033[0m”
+echo -e “\033[41;37m 红底白字 \033[0m”
+echo -e “\033[42;37m 绿底白字 \033[0m”
+echo -e “\033[43;37m 黄底白字 \033[0m”
+echo -e “\033[44;37m 蓝底白字 \033[0m”
+echo -e “\033[45;37m 紫底白字 \033[0m”
+echo -e “\033[46;37m 天蓝底白字 \033[0m”
+echo -e “\033[47;30m 白底黑字 \033[0m”
+
+\33[0m 关闭所有属性
+\33[1m 设置高亮度
+\33[4m 下划线
+\33[5m 闪烁
+\33[7m 反显
+\33[8m 消隐
+\33[30m — \33[37m 设置前景色
+\33[40m — \33[47m 设置背景色
+\33[nA 光标上移n行
+\33[nB 光标下移n行
+\33[nC 光标右移n行
+\33[nD 光标左移n行
+\33[y;xH设置光标位置
+\33[2J 清屏
+\33[K 清除从光标到行尾的内容
+\33[s 保存光标位置
+\33[u 恢复光标位置
+\33[?25l 隐藏光标
+\33[?25h 显示光标</code></pre>
+<h2 id="6-sprintf"><a href="#6-sprintf" class="headerlink" title="6. sprintf"></a>6. sprintf</h2><pre><code class="bash">#!/bin/bash
+printf &quot;%-10s %-8s %-4s\n&quot; 姓名 性别 体重kg  
+printf &quot;%-10s %-8s %-4.2f\n&quot; 郭靖 男 66.1234
+printf &quot;%-10s %-8s %-4.2f\n&quot; 杨过 男 48.6543
+printf &quot;%-10s %-8s %-4.2f\n&quot; 郭芙 女 47.9876</code></pre>
+<p>结果：</p>
+<pre><code>姓名     性别   体重kg
+郭靖     男      66.12
+杨过     男      48.65
+郭芙     女      47.99</code></pre><blockquote>
+<p><code>%s %c %d %f</code> 都是格式替代符<br><code>d</code>: Decimal 十进制整数 – 对应位置参数必须是十进制整数，否则报错！<br><code>s</code>: String 字符串 – 对应位置参数必须是字符串或者字符型，否则报错！<br><code>c</code>: Char 字符 – 对应位置参数必须是字符串或者字符型，否则报错！<br><code>f</code>: Float 浮点 – 对应位置参数必须是数字型，否则报错！<br><code>%-10s</code> 指一个宽度为10个字符（-表示左对齐，没有则表示右对齐）,任何字符都会被显示在10个字符宽的字符内，如果不足则自动以空格填充，超过也会将内容全部显示出来。<br><code>%-4.2f</code> 指格式化为小数，其中.2指保留2位小数。</p>
+</blockquote>
+<h2 id="7-test"><a href="#7-test" class="headerlink" title="7. test"></a>7. test</h2><p>Shell中的 test 命令用于检查某个条件是否成立，它可以进行数值、字符和文件三个方面的测试。</p>
+<pre><code class="bash">#!/bin/bash
+num1=100
+num2=100
+if test $[num1] -eq $[num2]</code></pre>
+<h2 id="8-流程控制"><a href="#8-流程控制" class="headerlink" title="8. 流程控制"></a>8. 流程控制</h2><h3 id="①-if-else"><a href="#①-if-else" class="headerlink" title="① if-else"></a>① if-else</h3><pre><code class="bash">#!/bin/bash
+a=10
+b=20
+if [ $a == $b ]
+then
+   echo &quot;a 等于 b&quot;
+elif [ $a -gt $b ]
+then
+   echo &quot;a 大于 b&quot;
+elif [ $a -lt $b ]
+then
+   echo &quot;a 小于 b&quot;
+else
+   echo &quot;没有符合的条件&quot;
+fi</code></pre>
+<h3 id="②-for"><a href="#②-for" class="headerlink" title="② for"></a>② for</h3><pre><code class="bash">#!/bin/bash
+for loop in 1 2 3 4 5
+do
+    echo &quot;The value is: $loop&quot;
+done</code></pre>
+<h3 id="③-while"><a href="#③-while" class="headerlink" title="③ while"></a>③ while</h3><pre><code class="bash">#!/bin/bash
+int=1
+while(( $int&lt;=5 ))
+do
+    echo $int
+    let &quot;int++&quot;
+done</code></pre>
+<h3 id="④-case"><a href="#④-case" class="headerlink" title="④ case"></a>④ case</h3><pre><code class="bash">#!/bin/bash
+echo &#39;输入 1 到 4 之间的数字:&#39;
+echo &#39;你输入的数字为:&#39;
+read aNum
+case $aNum in
+    1)  echo &#39;你选择了 1&#39;
+    ;;
+    2)  echo &#39;你选择了 2&#39;
+    ;;
+    3)  echo &#39;你选择了 3&#39;
+    ;;
+    4)  echo &#39;你选择了 4&#39;
+    ;;
+    *)  echo &#39;你没有输入 1 到 4 之间的数字&#39;
+    ;;
+esac</code></pre>
+<h3 id="⑤-break"><a href="#⑤-break" class="headerlink" title="⑤ break"></a>⑤ break</h3><p>break命令允许跳出所有循环（终止执行后面的所有循环）。</p>
+<pre><code class="bash">#!/bin/bash
+while :
+do
+    echo -n &quot;输入 1 到 5 之间的数字:&quot;
+    read aNum
+    case $aNum in
+        1|2|3|4|5) echo &quot;你输入的数字为 $aNum!&quot;
+        ;;
+        *) echo &quot;你输入的数字不是 1 到 5 之间的! 游戏结束&quot;
+            break
+        ;;
+    esac
+done</code></pre>
+<h3 id="⑥-continue"><a href="#⑥-continue" class="headerlink" title="⑥ continue"></a>⑥ continue</h3><p>跳出当前循环。</p>
+<pre><code class="bash">#!/bin/bash
+while :
+do
+    echo -n &quot;输入 1 到 5 之间的数字: &quot;
+    read aNum
+    case $aNum in
+        1|2|3|4|5) echo &quot;你输入的数字为 $aNum!&quot;
+        ;;
+        *) echo &quot;你输入的数字不是 1 到 5 之间的!&quot;
+            continue
+            echo &quot;游戏结束&quot;
+        ;;
+    esac
+done</code></pre>
+<h3 id="⑦-until"><a href="#⑦-until" class="headerlink" title="⑦ until"></a>⑦ until</h3><pre><code class="bash">#!/bin/bash
+
+a=0
+
+until [ ! $a -lt 10 ]
+do
+   echo $a
+   a=`expr $a + 1`
+done</code></pre>
+<h2 id="9-函数"><a href="#9-函数" class="headerlink" title="9. 函数"></a>9. 函数</h2><pre><code class="bash">#!/bin/bash
+
+funWithParam(){
+    echo &quot;第一个参数为 $1 !&quot;
+    echo &quot;第二个参数为 $2 !&quot;
+    echo &quot;第十个参数为 $10 !&quot;
+    echo &quot;第十个参数为 ${10} !&quot;
+    echo &quot;第十一个参数为 ${11} !&quot;
+    echo &quot;参数总数有 $# 个!&quot;
+    echo &quot;作为一个字符串输出所有参数 $* !&quot;
+}
+funWithParam 1 2 3 4 5 6 7 8 9 34 73</code></pre>
+<p>结果：</p>
+<pre><code>第一个参数为 1 !
+第二个参数为 2 !
+第十个参数为 10 !
+第十个参数为 34 !
+第十一个参数为 73 !
+参数总数有 11 个!
+作为一个字符串输出所有参数 1 2 3 4 5 6 7 8 9 34 73 !</code></pre><h2 id="10-输入输出"><a href="#10-输入输出" class="headerlink" title="10. 输入输出"></a>10. 输入输出</h2><pre><code class="bash">#!/bin/bash
+who &gt; today.log # 执行结果覆盖到文件 today.log
+echo &quot;菜鸟教程：www.runoob.com&quot; &gt;&gt; today.log # 执行结果追加到文件 today.log
+wc -l &lt; today.log # 统计 today.log 行数
+wc -l &lt;&lt; EOF
+    李白
+    苏轼
+    王勃
+EOF</code></pre>
+<h2 id="11-文件包含"><a href="#11-文件包含" class="headerlink" title="11. 文件包含"></a>11. 文件包含</h2><p>test1.sh</p>
+<pre><code class="bash">#!/bin/bash
+name=&quot;Chris&quot;</code></pre>
+<p>test2.sh</p>
+<pre><code class="bash">#!/bin/bash
+#使用 . 号来引用test1.sh 文件
+. ./test1.sh
+
+# 或者使用以下包含文件代码
+# source ./test1.sh
+
+echo $name</code></pre>
+<blockquote>
+<p>注：被包含的文件 test1.sh 不需要可执行权限。</p>
+</blockquote>
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference:"></a>reference:</h2><p>[1] <a href="http://www.runoob.com/linux/linux-shell.html" target="_blank" rel="noopener">http://www.runoob.com/linux/linux-shell.html</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
