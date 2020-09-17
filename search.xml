@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>ubuntu设置静态ip</title>
+      <link href="/2020/09/17/shell-command/"/>
+      <url>/2020/09/17/shell-command/</url>
+      
+        <content type="html"><![CDATA[<p>@[TOC]</p><h1 id="Title1"><a href="#Title1" class="headerlink" title="Title1"></a>Title1</h1><h2 id="Title2"><a href="#Title2" class="headerlink" title="Title2"></a>Title2</h2><h3 id="Title3"><a href="#Title3" class="headerlink" title="Title3"></a>Title3</h3><p>Content</p><table><thead><tr><th>table1</th><th>table2</th></tr></thead><tbody><tr><td>row1</td><td>row1.1</td></tr><tr><td>row2</td><td>row2.1</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> shell </tag>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>分布式物联网边缘计算服务设计与实现</title>
       <link href="/2020/05/22/ProjectEdge/%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%A9%E8%81%94%E7%BD%91%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E6%9C%8D%E5%8A%A1%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
       <url>/2020/05/22/ProjectEdge/%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%A9%E8%81%94%E7%BD%91%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E6%9C%8D%E5%8A%A1%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/</url>
@@ -22,9 +49,9 @@
             
             <tag> Kubernetes </tag>
             
-            <tag> ProjectEdge </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> ProjectEdge </tag>
             
             <tag> k3s </tag>
             
@@ -134,9 +161,9 @@
             
             <tag> Kubernetes </tag>
             
-            <tag> ProjectEdge </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> ProjectEdge </tag>
             
         </tags>
       
@@ -205,9 +232,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> shell </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       

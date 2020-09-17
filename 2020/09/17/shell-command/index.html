@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>mermaid图表 | Zuozishi Blog</title>
-  <meta name="keywords" content=" hexo ">
-  <meta name="description" content="mermaid图表 | Zuozishi Blog">
+  <title>ubuntu设置静态ip | Zuozishi Blog</title>
+  <meta name="keywords" content=" shell , Linux ">
+  <meta name="description" content="ubuntu设置静态ip | Zuozishi Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="@[TOC] Title1Title2Title3Content    table1 table2    row1 row1.1   row2 row2.1">
 <meta property="og:type" content="article">
@@ -423,9 +423,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-mermaid" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-shell-command" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">mermaid图表</h1>
+        <h1 class="article-title">ubuntu设置静态ip</h1>
     
     <div class="article-meta">
         
@@ -435,7 +435,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="工具">工具</a>
+            <a  data-rel="Linux">Linux</a>
             
         </span>
         
@@ -443,14 +443,16 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color5">hexo</a>
+            <a class="color1">shell</a>
+            
+            <a class="color1">Linux</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-09-17 09:57:00'>2020-04-16 03:41</time>
+            发布时间 : <time class="date" title='最后更新: 2020-09-17 11:08:29'>2020-09-17 11:48</time>
         
     </div>
     <div class="article-meta">
@@ -472,7 +474,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、说明"><span class="toc-text">一、说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#开启"><span class="toc-text">开启</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、示例"><span class="toc-text">二、示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-flowchart"><span class="toc-text">1. flowchart</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Sequence-diagrams"><span class="toc-text">2.Sequence diagrams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Class-diagrams"><span class="toc-text">3.Class diagrams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-State-diagrams"><span class="toc-text">4.State diagrams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Gantt-diagrams"><span class="toc-text">5.Gantt diagrams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Pie-chart-diagrams"><span class="toc-text">6.Pie chart diagrams</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Title1"><span class="toc-text">Title1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Title2"><span class="toc-text">Title2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Title3"><span class="toc-text">Title3</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -488,128 +490,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h2><h3 id="开启"><a href="#开启" class="headerlink" title="开启"></a>开启</h3><ol>
-<li><p>安装hexo插件</p>
-<pre><code class="bash">npm install hexo-filter-mermaid-diagrams</code></pre>
-</li>
-<li><p>修改<code>themes/3-hexo/_config.yml</code> 的 <code>mermaid.on</code>，开启主题支持</p>
-<pre><code class="yml"># Mermaid 支持
-mermaid:
-on: true
-cdn: //cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js
-#cdn: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.3.1/mermaid.min.js
-options: # 更多配置信息可以参考 https://mermaidjs.github.io/#/mermaidAPI
- theme: &#39;default&#39;
- startOnLoad: true
- flowchart:
-   useMaxWidth: false
-   htmlLabels: true</code></pre>
-</li>
-<li><p>在markdown中，像写代码块一样写图表<br><img src="//img.saodiyang.com/FuBTJvG5xIOIcKZPnO9UX5GCwthK.png" alt=""></p>
-</li>
-</ol>
-<h2 id="二、示例"><a href="#二、示例" class="headerlink" title="二、示例"></a>二、示例</h2><p>以下示例源码可以在这边查看 <a href="https://github.com/yelog/blog/blob/master/source/_posts/tools/3-hexo%E6%94%AF%E6%8C%81mermaid%E5%9B%BE%E8%A1%A8.md" target="_blank" rel="noopener">本文源码</a><br>更多示例可以查看官网：<a href="https://mermaidjs.github.io" target="_blank" rel="noopener">https://mermaidjs.github.io</a></p>
-<h3 id="1-flowchart"><a href="#1-flowchart" class="headerlink" title="1. flowchart"></a>1. flowchart</h3><pre class="mermaid">graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;</pre>
+        <p>@<div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Title1"><span class="toc-text">Title1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Title2"><span class="toc-text">Title2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Title3"><span class="toc-text">Title3</span></a></li></ol></li></ol></li></ol></div></p>
+<h1 id="Title1"><a href="#Title1" class="headerlink" title="Title1"></a>Title1</h1><h2 id="Title2"><a href="#Title2" class="headerlink" title="Title2"></a>Title2</h2><h3 id="Title3"><a href="#Title3" class="headerlink" title="Title3"></a>Title3</h3><p>Content</p>
+<table>
+<thead>
+<tr>
+<th>table1</th>
+<th>table2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>row1</td>
+<td>row1.1</td>
+</tr>
+<tr>
+<td>row2</td>
+<td>row2.1</td>
+</tr>
+</tbody></table>
 
-<pre class="mermaid">graph TB
-    c1-->a2
-    subgraph one
-    a1-->a2
-    end
-    subgraph two
-    b1-->b2
-    end
-    subgraph three
-    c1-->c2
-    end</pre>
-
-<h3 id="2-Sequence-diagrams"><a href="#2-Sequence-diagrams" class="headerlink" title="2.Sequence diagrams"></a>2.Sequence diagrams</h3><pre class="mermaid">sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice->>John: Hello John, how are you?
-    loop Healthcheck
-        John->>John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts <br/>prevail!
-    John-->>Alice: Great!
-    John->>Bob: How about you?
-    Bob-->>John: Jolly good!</pre>
-
-<h3 id="3-Class-diagrams"><a href="#3-Class-diagrams" class="headerlink" title="3.Class diagrams"></a>3.Class diagrams</h3><pre class="mermaid">classDiagram
-     Animal <|-- Duck
-     Animal <|-- Fish
-     Animal <|-- Zebra
-     Animal : +int age
-     Animal : +String gender
-     Animal: +isMammal()
-     Animal: +mate()
-     class Duck{
-         +String beakColor
-         +swim()
-         +quack()
-     }
-     class Fish{
-         -int sizeInFeet
-         -canEat()
-     }
-     class Zebra{
-         +bool is_wild
-         +run()
-     }</pre>
-
-<h3 id="4-State-diagrams"><a href="#4-State-diagrams" class="headerlink" title="4.State diagrams"></a>4.State diagrams</h3><pre class="mermaid">stateDiagram
-       [*] --> Active
-
-       state Active {
-           [*] --> NumLockOff
-           NumLockOff --> NumLockOn : EvNumLockPressed
-           NumLockOn --> NumLockOff : EvNumLockPressed
-           --
-           [*] --> CapsLockOff
-           CapsLockOff --> CapsLockOn : EvCapsLockPressed
-           CapsLockOn --> CapsLockOff : EvCapsLockPressed
-           --
-           [*] --> ScrollLockOff
-           ScrollLockOff --> ScrollLockOn : EvCapsLockPressed
-           ScrollLockOn --> ScrollLockOff : EvCapsLockPressed
-       }</pre>
-
-<h3 id="5-Gantt-diagrams"><a href="#5-Gantt-diagrams" class="headerlink" title="5.Gantt diagrams"></a>5.Gantt diagrams</h3><pre class="mermaid">gantt
-       dateFormat  YYYY-MM-DD
-       title Adding GANTT diagram functionality to mermaid
-
-       section A section
-       Completed task            :done,    des1, 2014-01-06,2014-01-08
-       Active task               :active,  des2, 2014-01-09, 3d
-       Future task               :         des3, after des2, 5d
-       Future task2              :         des4, after des3, 5d
-
-       section Critical tasks
-       Completed task in the critical line :crit, done, 2014-01-06,24h
-       Implement parser and jison          :crit, done, after des1, 2d
-       Create tests for parser             :crit, active, 3d
-       Future task in critical line        :crit, 5d
-       Create tests for renderer           :2d
-       Add to mermaid                      :1d
-
-       section Documentation
-       Describe gantt syntax               :active, a1, after des1, 3d
-       Add gantt diagram to demo page      :after a1  , 20h
-       Add another diagram to demo page    :doc1, after a1  , 48h
-
-       section Last section
-       Describe gantt syntax               :after doc1, 3d
-       Add gantt diagram to demo page      :20h
-       Add another diagram to demo page    :48h</pre>
-
-<h3 id="6-Pie-chart-diagrams"><a href="#6-Pie-chart-diagrams" class="headerlink" title="6.Pie chart diagrams"></a>6.Pie chart diagrams</h3><pre class="mermaid">pie
-    "Dogs" : 386
-    "Cats" : 85
-    "Rats" : 15</pre>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
     </div>
